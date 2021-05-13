@@ -11,5 +11,8 @@
   },
   "engines": {
     "node": "14.x.x"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^4.4.1"
   }
 }
