@@ -1,17 +1,62 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route, useLocation } from 'react-router-dom';
+import loadable from '@loadable/component';
 
 import { AppPage } from '../../components/application/AppPage';
 import { useFetch } from '../../hooks/use_fetch';
 import { fetchJSON } from '../../utils/fetchers';
-import { AuthModalContainer } from '../AuthModalContainer';
-import { NewPostModalContainer } from '../NewPostModalContainer';
-import { NotFoundContainer } from '../NotFoundContainer';
-import { PostContainer } from '../PostContainer';
-import { TermContainer } from '../TermContainer';
-import { TimelineContainer } from '../TimelineContainer';
-import { UserProfileContainer } from '../UserProfileContainer';
+
+const Loading = () => <div style={{ height: '100vh', width: '100%' }}></div>;
+
+const AuthModalContainer = loadable(
+  () => import('../AuthModalContainer').then(({ AuthModalContainer }) => ({ default: AuthModalContainer })),
+  {
+    fallback: <Loading />,
+  },
+);
+
+const NewPostModalContainer = loadable(
+  () => import('../NewPostModalContainer').then(({ NewPostModalContainer }) => ({ default: NewPostModalContainer })),
+  {
+    fallback: <Loading />,
+  },
+);
+
+const NotFoundContainer = loadable(
+  () => import('../NotFoundContainer').then(({ NotFoundContainer }) => ({ default: NotFoundContainer })),
+  {
+    fallback: <Loading />,
+  },
+);
+
+const PostContainer = loadable(
+  () => import('../PostContainer').then(({ PostContainer }) => ({ default: PostContainer })),
+  {
+    fallback: <Loading />,
+  },
+);
+
+const TermContainer = loadable(
+  () => import('../TermContainer').then(({ TermContainer }) => ({ default: TermContainer })),
+  {
+    fallback: <Loading />,
+  },
+);
+
+const TimelineContainer = loadable(
+  () => import('../TimelineContainer').then(({ TimelineContainer }) => ({ default: TimelineContainer })),
+  {
+    fallback: <Loading />,
+  },
+);
+
+const UserProfileContainer = loadable(
+  () => import('../UserProfileContainer').then(({ UserProfileContainer }) => ({ default: UserProfileContainer })),
+  {
+    fallback: <Loading />,
+  },
+);
 
 /** @type {React.VFC} */
 const AppContainer = () => {

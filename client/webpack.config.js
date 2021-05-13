@@ -62,9 +62,13 @@ const config = {
   },
   output: {
     filename: 'scripts/[name].js',
+    chunkFilename: 'scripts/[contenthash:7].js',
     path: DIST_PATH,
   },
   optimization: {
+    runtimeChunk: {
+      name: 'runtime',
+    },
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
