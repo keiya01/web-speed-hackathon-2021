@@ -37,7 +37,6 @@ const config = {
   devtool: !IS_PROD ? 'inline-source-map' : false,
   entry: {
     main: [
-      'jquery-binarytransport',
       path.resolve(SRC_PATH, './index.css'),
       path.resolve(SRC_PATH, './buildinfo.js'),
       path.resolve(SRC_PATH, './index.jsx'),
@@ -134,7 +133,6 @@ const config = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
       AudioContext: ['standardized-audio-context', 'AudioContext'],
       Buffer: ['buffer', 'Buffer'],
     }),
@@ -147,7 +145,6 @@ const config = {
       filename: 'styles/[name].css',
     }),
     new HtmlWebpackPlugin({
-      inject: false,
       template: path.resolve(SRC_PATH, './index.html'),
     }),
   ],
