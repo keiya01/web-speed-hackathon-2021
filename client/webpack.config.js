@@ -9,6 +9,8 @@ const PUBLIC_PATH = path.resolve(__dirname, '../public');
 const UPLOAD_PATH = path.resolve(__dirname, '../upload');
 const DIST_PATH = path.resolve(__dirname, '../dist');
 
+const IS_PROD = process.env.NODE_ENV === 'production';
+
 /** @type {import('webpack').Configuration} */
 const config = {
   devServer: {
@@ -20,7 +22,7 @@ const config = {
       '/api': 'http://localhost:3000',
     },
   },
-  devtool: 'inline-source-map',
+  devtool: !IS_PROD ? 'inline-source-map' : undefined,
   entry: {
     main: [
       'core-js',
@@ -31,7 +33,7 @@ const config = {
       path.resolve(SRC_PATH, './index.jsx'),
     ],
   },
-  mode: 'none',
+  mode: IS_PROD ? 'production' : 'development',
   module: {
     rules: [
       {
@@ -58,7 +60,6 @@ const config = {
       $: 'jquery',
       AudioContext: ['standardized-audio-context', 'AudioContext'],
       Buffer: ['buffer', 'Buffer'],
-      'window.jQuery': 'jquery',
     }),
     new webpack.EnvironmentPlugin({
       BUILD_DATE: new Date().toISOString(),
