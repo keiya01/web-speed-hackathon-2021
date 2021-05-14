@@ -5,13 +5,6 @@ import { User } from '../../models';
 
 const router = Router();
 
-app.options(
-  '/signup',
-  cors({
-    origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
-    credentials: true,
-  }),
-);
 router.post('/signup', async (req, res) => {
   const { id: userId } = await User.create(req.body);
 
@@ -22,13 +15,6 @@ router.post('/signup', async (req, res) => {
   return res.status(200).type('application/json').send(user);
 });
 
-app.options(
-  '/signin',
-  cors({
-    origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
-    credentials: true,
-  }),
-);
 router.post('/signin', async (req, res) => {
   const user = await User.findOne({
     where: {
@@ -48,13 +34,6 @@ router.post('/signin', async (req, res) => {
   return res.status(200).type('application/json').send(user);
 });
 
-app.options(
-  '/signout',
-  cors({
-    origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
-    credentials: true,
-  }),
-);
 router.post('/signout', async (req, res) => {
   req.session.userId = undefined;
   return res.status(200).type('application/json').send({});

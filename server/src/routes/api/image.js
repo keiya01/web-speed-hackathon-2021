@@ -13,13 +13,6 @@ const EXTENSION = 'jpg';
 
 const router = Router();
 
-app.options(
-  '/images',
-  cors({
-    origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
-    credentials: true,
-  }),
-);
 router.post('/images', async (req, res) => {
   if (req.session.userId === undefined) {
     throw new httpErrors.Unauthorized();

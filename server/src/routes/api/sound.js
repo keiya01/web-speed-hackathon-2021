@@ -14,13 +14,6 @@ const EXTENSION = 'mp3';
 
 const router = Router();
 
-app.options(
-  '/sounds',
-  cors({
-    origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
-    credentials: true,
-  }),
-);
 router.post('/sounds', async (req, res) => {
   if (req.session.userId === undefined) {
     throw new httpErrors.Unauthorized();
