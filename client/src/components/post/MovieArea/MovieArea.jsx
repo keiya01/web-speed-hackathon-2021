@@ -12,7 +12,7 @@ import { PausableMovie } from '../../foundation/PausableMovie';
 const MovieArea = ({ movie }) => {
   return (
     <div className="relative w-full h-full bg-gray-300 border border-gray-300 rounded-lg overflow-hidden">
-      <PausableMovie src={getMoviePath(movie.id)} />
+      <video src={getMoviePath(movie.id)} type="video/mp4" />
     </div>
   );
 };

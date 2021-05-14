@@ -1,5 +1,5 @@
 {
   "version": 2,
   "alias": "web-speed-hackathon-online-2021",
-  "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "/public/index.html" }]
+  "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "/index.html" }]
 }

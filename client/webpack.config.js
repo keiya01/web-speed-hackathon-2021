@@ -64,6 +64,7 @@ const config = {
     filename: 'scripts/[name].js',
     chunkFilename: 'scripts/[contenthash:7].js',
     path: DIST_PATH,
+    publicPath: '/',
   },
   optimization: {
     runtimeChunk: {
