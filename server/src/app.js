@@ -23,7 +23,7 @@ app.use(bodyParser.raw({ limit: '10mb' }));
 const allowCrossOrigin = function (req, res, next) {
   res.header('Access-Control-Allow-Origin', 'https://web-speed-hackathon-2021-keiya01.vercel.app');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, access_token');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   // TODO: should be fixed
   res.header('Access-Control-Allow-Credentials', 'true');
 
