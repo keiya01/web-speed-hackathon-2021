@@ -1,4 +1,4 @@
-const API_URL = 'https://web-speed-hackathon-2021.herokuapp.com';
+const API_URL = 'https://web-speed-hackathon2021.herokuapp.com';
 
 /**
  * @param {string} imageId
