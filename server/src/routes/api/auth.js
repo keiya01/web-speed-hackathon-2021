@@ -12,9 +12,10 @@ router.post('/signup', async (req, res) => {
 
   const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 
-  res.cookie('userId', 'userId', {
+  res.cookie('userId', userId, {
     secure: true,
     httpOnly: true,
+    expiryDate,
   });
 
   return res.status(200).type('application/json').send(user);
@@ -36,7 +37,7 @@ router.post('/signin', async (req, res) => {
 
   const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 
-  res.cookie('userId', 'userId', {
+  res.cookie('userId', userId, {
     secure: true,
     httpOnly: true,
     expiryDate,
