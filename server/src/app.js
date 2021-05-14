@@ -10,12 +10,12 @@ const app = Express();
 
 app.set('trust proxy', true);
 
-const corsOptions = {
-  origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-};
+// const corsOptions = {
+//   origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(
   session({
