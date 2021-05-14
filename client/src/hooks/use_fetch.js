@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_URL } from '../utils/get_path';
 
 /**
  * @template T
@@ -29,7 +30,7 @@ export function useFetch(apiPath, fetcher) {
         isLoading: true,
       }));
 
-      const data = await fetcher(apiPath);
+      const data = await fetcher(`${API_URL}${apiPath}`);
 
       setResult((cur) => ({
         ...cur,

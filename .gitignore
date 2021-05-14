@@ -200,3 +200,7 @@ tmp
 upload
 
 .vercel
+
+public/scripts
+public/styles
+public/index.html

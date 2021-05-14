@@ -12,7 +12,7 @@ app.set('trust proxy', true);
 
 const corsOptions = {
   origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
 
 app.use(cors(corsOptions));

@@ -3,6 +3,7 @@ import React from 'react';
 import { AuthModalPage } from '../../components/auth_modal/AuthModalPage';
 import { Modal } from '../../components/modal/Modal';
 import { sendJSON } from '../../utils/fetchers';
+import { API_URL } from '../../utils/get_path';
 
 /**
  * @typedef {object} Props
@@ -23,10 +24,10 @@ const AuthModalContainer = ({ onRequestCloseModal, onUpdateActiveUser }) => {
     try {
       setIsLoading(true);
       if (type === 'signin') {
-        const user = await sendJSON('/api/v1/signin', params);
+        const user = await sendJSON(API_URL + '/api/v1/signin', params);
         onUpdateActiveUser(user);
       } else if (type === 'signup') {
-        const user = await sendJSON('/api/v1/signup', params);
+        const user = await sendJSON(API_URL + '/api/v1/signup', params);
         onUpdateActiveUser(user);
       }
       onRequestCloseModal();

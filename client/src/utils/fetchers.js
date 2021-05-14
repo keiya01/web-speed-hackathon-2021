@@ -12,6 +12,8 @@ async function fetchBinary(url) {
   // });
   return await fetch(url, {
     method: 'get',
+    mode: 'cors',
+    credentials: 'include',
   }).then((data) => data.arrayBuffer());
 }
 
@@ -29,6 +31,8 @@ async function fetchJSON(url) {
   // });
   return await fetch(url, {
     method: 'get',
+    mode: 'cors',
+    credentials: 'include',
   }).then((data) => data.json());
 }
 
@@ -53,6 +57,8 @@ async function sendFile(url, file) {
   return await fetch(url, {
     body: file,
     method: 'post',
+    mode: 'cors',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/octet-stream',
     },
@@ -81,6 +87,8 @@ async function sendJSON(url, data) {
   return await fetch(url, {
     body: data,
     method: 'post',
+    mode: 'cors',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
     },

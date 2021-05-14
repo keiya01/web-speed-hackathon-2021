@@ -1,4 +1,4 @@
-const API_URL = 'https://web-speed-hackathon-2021-keiya01.vercel.app';
+const API_URL = 'https://web-speed-hackathon-2021.herokuapp.com';
 
 /**
  * @param {string} imageId
@@ -32,4 +32,4 @@ function getProfileImagePath(profileImageId) {
   return `${API_URL}/images/profiles/${profileImageId}.jpg`;
 }
 
-export { getImagePath, getMoviePath, getSoundPath, getProfileImagePath };
+export { getImagePath, getMoviePath, getSoundPath, getProfileImagePath, API_URL };
