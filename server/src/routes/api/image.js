@@ -14,7 +14,7 @@ const EXTENSION = 'jpg';
 const router = Router();
 
 router.post('/images', async (req, res) => {
-  if (req.session.userId === undefined) {
+  if (req.cookies.userId === undefined) {
     throw new httpErrors.Unauthorized();
   }
   if (Buffer.isBuffer(req.body) === false) {

@@ -15,7 +15,7 @@ const EXTENSION = 'mp3';
 const router = Router();
 
 router.post('/sounds', async (req, res) => {
-  if (req.session.userId === undefined) {
+  if (req.cookies.userId === undefined) {
     throw new httpErrors.Unauthorized();
   }
   if (Buffer.isBuffer(req.body) === false) {

@@ -97,7 +97,7 @@ async function sendJSON(url, data) {
   //   url,
   // });
   const result = await fetch(url, {
-    body: data,
+    body: JSON.stringify(data),
     method: 'post',
     mode: 'cors',
     credentials: 'include',

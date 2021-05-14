@@ -14,7 +14,7 @@ const EXTENSION = 'gif';
 const router = Router();
 
 router.post('/movies', async (req, res) => {
-  if (req.session.userId === undefined) {
+  if (req.cookies.userId === undefined) {
     throw new httpErrors.Unauthorized();
   }
   if (Buffer.isBuffer(req.body) === false) {

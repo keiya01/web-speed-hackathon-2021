@@ -39,14 +39,14 @@ router.get('/posts/:postId/comments', async (req, res) => {
 });
 
 router.post('/posts', async (req, res) => {
-  if (req.session.userId === undefined) {
+  if (req.cookies.userId === undefined) {
     throw new httpErrors.Unauthorized();
   }
 
   const post = await Post.create(
     {
       ...req.body,
-      userId: req.session.userId,
+      userId: req.cookies.userId,
     },
     {
       include: [

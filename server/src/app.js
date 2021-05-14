@@ -1,6 +1,7 @@
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import Express from 'express';
-import session from 'express-session';
+// import session from 'express-session';
 import cors from 'cors';
 
 import { apiRouter } from './routes/api';
@@ -10,16 +11,17 @@ const app = Express();
 
 app.set('trust proxy', true);
 
-app.use(
-  session({
-    proxy: true,
-    resave: false,
-    saveUninitialized: false,
-    secret: 'secret',
-  }),
-);
+// app.use(
+//   session({
+//     proxy: true,
+//     resave: false,
+//     saveUninitialized: false,
+//     secret: 'secret',
+//   }),
+// );
 app.use(bodyParser.json());
 app.use(bodyParser.raw({ limit: '10mb' }));
+app.use(cookieParser());
 
 // const allowCrossOrigin = function (req, res, next) {
 //   res.header('Access-Control-Allow-Origin', 'https://web-speed-hackathon-2021-keiya01.vercel.app');

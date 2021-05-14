@@ -10,7 +10,12 @@ router.post('/signup', async (req, res) => {
 
   const user = await User.findByPk(userId);
 
-  req.session.userId = user.id;
+  const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+
+  res.cookie('userId', 'userId', {
+    secure: true,
+    httpOnly: true,
+  });
 
   return res.status(200).type('application/json').send(user);
 });
@@ -29,13 +34,19 @@ router.post('/signin', async (req, res) => {
     throw new httpErrors.BadRequest();
   }
 
-  req.session.userId = user.id;
+  const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+
+  res.cookie('userId', 'userId', {
+    secure: true,
+    httpOnly: true,
+    expiryDate,
+  });
 
   return res.status(200).type('application/json').send(user);
 });
 
 router.post('/signout', async (req, res) => {
-  req.session.userId = undefined;
+  res.clearCookie('userId');
   return res.status(200).type('application/json').send({});
 });
 

@@ -6,10 +6,10 @@ import { User, Post } from '../../models';
 const router = Router();
 
 router.get('/me', async (req, res) => {
-  if (req.session.userId === undefined) {
+  if (req.cookies.userId === undefined) {
     throw new httpErrors.Unauthorized();
   }
-  const user = await User.findByPk(req.session.userId);
+  const user = await User.findByPk(req.cookies.userId);
 
   if (user === null) {
     throw new httpErrors.NotFound();
@@ -19,10 +19,10 @@ router.get('/me', async (req, res) => {
 });
 
 router.put('/me', async (req, res) => {
-  if (req.session.userId === undefined) {
+  if (req.cookies.userId === undefined) {
     throw new httpErrors.Unauthorized();
   }
-  const user = await User.findByPk(req.session.userId);
+  const user = await User.findByPk(req.cookies.userId);
 
   if (user === null) {
     throw new httpErrors.NotFound();
