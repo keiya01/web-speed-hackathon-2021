@@ -9,6 +9,17 @@ const app = Express();
 
 app.set('trust proxy', true);
 
+app.use(
+  session({
+    proxy: true,
+    resave: false,
+    saveUninitialized: false,
+    secret: 'secret',
+  }),
+);
+app.use(bodyParser.json());
+app.use(bodyParser.raw({ limit: '10mb' }));
+
 const allowCrossDomain = function (req, res, next) {
   res.header('Access-Control-Allow-Origin', 'https://web-speed-hackathon-2021-keiya01.vercel.app');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -23,24 +34,13 @@ const allowCrossDomain = function (req, res, next) {
 };
 app.use(allowCrossDomain);
 
-app.use(
-  session({
-    proxy: true,
-    resave: false,
-    saveUninitialized: false,
-    secret: 'secret',
-  }),
-);
-app.use(bodyParser.json());
-app.use(bodyParser.raw({ limit: '10mb' }));
-
-app.use((_req, res, next) => {
-  res.header({
-    'Cache-Control': 'max-age=0, no-transform',
-    Connection: 'close',
-  });
-  return next();
-});
+// app.use((_req, res, next) => {
+//   res.header({
+//     'Cache-Control': 'max-age=0, no-transform',
+//     Connection: 'close',
+//   });
+//   return next();
+// });
 
 app.use('/api/v1', apiRouter);
 // app.use(staticRouter);
