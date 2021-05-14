@@ -39,6 +39,7 @@ app.use(bodyParser.raw({ limit: '10mb' }));
 app.use(
   cors({
     origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
+    credentials: true,
   }),
 );
 
