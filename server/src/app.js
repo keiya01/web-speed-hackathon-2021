@@ -3,7 +3,7 @@ import Express from 'express';
 import session from 'express-session';
 
 import { apiRouter } from './routes/api';
-// import { staticRouter } from './routes/static';
+import { staticRouter } from './routes/static';
 
 const app = Express();
 
@@ -45,6 +45,6 @@ app.use(allowCrossOrigin);
 // });
 
 app.use('/api/v1', apiRouter);
-// app.use(staticRouter);
+app.use(staticRouter);
 
 export { app };
