@@ -16,6 +16,7 @@ router.post('/signup', async (req, res) => {
     secure: true,
     httpOnly: true,
     expiryDate,
+    sameSite: 'none',
   });
 
   return res.status(200).type('application/json').send(user);
@@ -41,6 +42,7 @@ router.post('/signin', async (req, res) => {
     secure: true,
     httpOnly: true,
     expiryDate,
+    sameSite: 'none',
   });
 
   return res.status(200).type('application/json').send(user);
