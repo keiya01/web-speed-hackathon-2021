@@ -13,6 +13,13 @@ const EXTENSION = 'gif';
 
 const router = Router();
 
+app.options(
+  '/movies',
+  cors({
+    origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
+    credentials: true,
+  }),
+);
 router.post('/movies', async (req, res) => {
   if (req.session.userId === undefined) {
     throw new httpErrors.Unauthorized();

@@ -18,6 +18,13 @@ router.get('/me', async (req, res) => {
   return res.status(200).type('application/json').send(user);
 });
 
+app.options(
+  '/me',
+  cors({
+    origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
+    credentials: true,
+  }),
+);
 router.put('/me', async (req, res) => {
   if (req.session.userId === undefined) {
     throw new httpErrors.Unauthorized();

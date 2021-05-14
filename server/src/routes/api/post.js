@@ -38,6 +38,13 @@ router.get('/posts/:postId/comments', async (req, res) => {
   return res.status(200).type('application/json').send(posts);
 });
 
+app.options(
+  '/posts',
+  cors({
+    origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
+    credentials: true,
+  }),
+);
 router.post('/posts', async (req, res) => {
   if (req.session.userId === undefined) {
     throw new httpErrors.Unauthorized();
