@@ -1,11 +1,13 @@
 const API_URL = 'https://web-speed-hackathon2021.herokuapp.com';
 
+// TODO: 画像圧縮
+
 /**
  * @param {string} imageId
  * @returns {string}
  */
 function getImagePath(imageId) {
-  return `${API_URL}/images/${imageId}.jpg`;
+  return `/images/${imageId}.jpg`;
 }
 
 /**
@@ -13,7 +15,7 @@ function getImagePath(imageId) {
  * @returns {string}
  */
 function getMoviePath(movieId) {
-  return `${API_URL}/movies/${movieId}.gif`;
+  return `/movies/${movieId}.gif`;
 }
 
 /**
@@ -21,7 +23,7 @@ function getMoviePath(movieId) {
  * @returns {string}
  */
 function getSoundPath(soundId) {
-  return `${API_URL}/sounds/${soundId}.mp3`;
+  return `/sounds/${soundId}.mp3`;
 }
 
 /**
@@ -29,7 +31,7 @@ function getSoundPath(soundId) {
  * @returns {string}
  */
 function getProfileImagePath(profileImageId) {
-  return `${API_URL}/images/profiles/${profileImageId}.jpg`;
+  return `/images/profiles/${profileImageId}.jpg`;
 }
 
 export { getImagePath, getMoviePath, getSoundPath, getProfileImagePath, API_URL };

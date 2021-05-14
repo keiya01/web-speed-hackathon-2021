@@ -10,11 +10,15 @@ async function fetchBinary(url) {
   //   responseType: 'arraybuffer',
   //   url,
   // });
-  return await fetch(url, {
+  const result = await fetch(url, {
     method: 'get',
     mode: 'cors',
     credentials: 'include',
-  }).then((data) => data.arrayBuffer());
+  });
+  if (!result.ok) {
+    return null;
+  }
+  return await result.arrayBuffer();
 }
 
 /**
@@ -29,11 +33,15 @@ async function fetchJSON(url) {
   //   method: 'GET',
   //   url,
   // });
-  return await fetch(url, {
+  const result = await fetch(url, {
     method: 'get',
     mode: 'cors',
     credentials: 'include',
-  }).then((data) => data.json());
+  });
+  if (!result.ok) {
+    return null;
+  }
+  return await result.json();
 }
 
 /**
@@ -54,7 +62,7 @@ async function sendFile(url, file) {
   //   processData: false,
   //   url,
   // });
-  return await fetch(url, {
+  const result = await fetch(url, {
     body: file,
     method: 'post',
     mode: 'cors',
@@ -62,7 +70,11 @@ async function sendFile(url, file) {
     headers: {
       'Content-Type': 'application/octet-stream',
     },
-  }).then((data) => data.json());
+  });
+  if (!result.ok) {
+    return null;
+  }
+  return await result.json();
 }
 
 /**
@@ -84,7 +96,7 @@ async function sendJSON(url, data) {
   //   processData: false,
   //   url,
   // });
-  return await fetch(url, {
+  const result = await fetch(url, {
     body: data,
     method: 'post',
     mode: 'cors',
@@ -92,7 +104,11 @@ async function sendJSON(url, data) {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then((data) => data.json());
+  });
+  if (!result.ok) {
+    return null;
+  }
+  return await result.json();
 }
 
 export { fetchBinary, fetchJSON, sendFile, sendJSON };
