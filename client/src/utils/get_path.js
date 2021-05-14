@@ -1,9 +1,11 @@
+const API_URL = 'https://web-speed-hackathon-2021-keiya01.vercel.app';
+
 /**
  * @param {string} imageId
  * @returns {string}
  */
 function getImagePath(imageId) {
-  return `/images/${imageId}.jpg`;
+  return `${API_URL}/images/${imageId}.jpg`;
 }
 
 /**
@@ -11,7 +13,7 @@ function getImagePath(imageId) {
  * @returns {string}
  */
 function getMoviePath(movieId) {
-  return `/movies/${movieId}.gif`;
+  return `${API_URL}/movies/${movieId}.gif`;
 }
 
 /**
@@ -19,7 +21,7 @@ function getMoviePath(movieId) {
  * @returns {string}
  */
 function getSoundPath(soundId) {
-  return `/sounds/${soundId}.mp3`;
+  return `${API_URL}/sounds/${soundId}.mp3`;
 }
 
 /**
@@ -27,7 +29,7 @@ function getSoundPath(soundId) {
  * @returns {string}
  */
 function getProfileImagePath(profileImageId) {
-  return `/images/profiles/${profileImageId}.jpg`;
+  return `${API_URL}/images/profiles/${profileImageId}.jpg`;
 }
 
 export { getImagePath, getMoviePath, getSoundPath, getProfileImagePath };
