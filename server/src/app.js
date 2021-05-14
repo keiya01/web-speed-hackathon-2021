@@ -1,7 +1,6 @@
 import bodyParser from 'body-parser';
 import Express from 'express';
 import session from 'express-session';
-import cors from 'cors';
 
 import { apiRouter } from './routes/api';
 // import { staticRouter } from './routes/static';
@@ -10,12 +9,19 @@ const app = Express();
 
 app.set('trust proxy', true);
 
-// const corsOptions = {
-//   origin: 'https://web-speed-hackathon-2021-keiya01.vercel.app',
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-// };
+const allowCrossDomain = function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://web-speed-hackathon-2021-keiya01.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, access_token');
 
-app.use(cors());
+  // intercept OPTIONS method
+  if ('OPTIONS' === req.method) {
+    res.send(200);
+  } else {
+    next();
+  }
+};
+app.use(allowCrossDomain);
 
 app.use(
   session({
