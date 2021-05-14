@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const SRC_PATH = path.resolve(__dirname, './src');
 const PUBLIC_PATH = path.resolve(__dirname, '../public');
 const UPLOAD_PATH = path.resolve(__dirname, '../upload');
-const DIST_PATH = path.resolve(__dirname, '../dist');
+const DIST_PATH = path.resolve(__dirname, '../public');
 
 const IS_PROD = process.env.NODE_ENV === 'production';
 

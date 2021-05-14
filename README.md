@@ -1,5 +1,7 @@
 # Web Speed Hackathon 2021 Online
 
+single page なので 静的ファイルは vercel にあげて、API は heroku でも良いかも
+
 ## 概要
 
 「Web Speed Hackathon Online」はリモート参加型のハッカソンです。
