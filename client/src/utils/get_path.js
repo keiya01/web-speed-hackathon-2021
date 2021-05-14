@@ -7,7 +7,7 @@ const API_URL = 'https://web-speed-hackathon2021.herokuapp.com';
  * @returns {string}
  */
 function getImagePath(imageId) {
-  return `/images/${imageId}.jpg`;
+  return `/images/${imageId}.webp`;
 }
 
 /**
@@ -31,7 +31,7 @@ function getSoundPath(soundId) {
  * @returns {string}
  */
 function getProfileImagePath(profileImageId) {
-  return `/images/profiles/${profileImageId}.jpg`;
+  return `/images/profiles/${profileImageId}.webp`;
 }
 
 export { getImagePath, getMoviePath, getSoundPath, getProfileImagePath, API_URL };
