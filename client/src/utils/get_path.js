@@ -23,7 +23,7 @@ function getMoviePath(movieId) {
  * @returns {string}
  */
 function getSoundPath(soundId) {
-  return `/sounds/${soundId}_compress.mp3`;
+  return `/sounds/${soundId}_comp.mp3`;
 }
 
 /**

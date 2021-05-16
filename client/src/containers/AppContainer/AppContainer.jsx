@@ -7,6 +7,13 @@ import { AppPage } from '../../components/application/AppPage';
 import { useFetch } from '../../hooks/use_fetch';
 import { fetchJSON } from '../../utils/fetchers';
 
+import dayjs from 'dayjs';
+import LocalizedFormat from 'dayjs/plugin/localizedFormat';
+import 'dayjs/locale/ja';
+
+dayjs.extend(LocalizedFormat);
+dayjs.locale('ja');
+
 const Loading = () => <div style={{ height: '100vh', width: '100%' }}></div>;
 
 const AuthModalContainer = loadable(
