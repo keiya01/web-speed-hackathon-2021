@@ -2,6 +2,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const webpack = require('webpack');
 const crypto = require('crypto');
 
@@ -135,6 +136,7 @@ const config = {
       maxInitialRequests: 25,
       minSize: 20000,
     },
+    minimizer: [`...`, new CssMinimizerPlugin()],
   },
   plugins: [
     new webpack.ProvidePlugin({
